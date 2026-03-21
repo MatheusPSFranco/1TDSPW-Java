@@ -9,7 +9,7 @@ public class ExemploEntradaDados {
         Scanner leitor = new Scanner(System.in);
 
         System.out.println("Digite o nome do aluno");
-        String nome = leitor.next();
+        String nome = leitor.next() + leitor.nextLine();
 
         System.out.println("Digite a nota da cp 1");
         double cp1 = leitor.nextDouble();
