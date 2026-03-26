@@ -10,7 +10,7 @@ public class Terminal {
 
         Scanner leitor = new Scanner(System.in);
 
-        //Ler as informações do Produto (sem fortnecedor por enquanto)
+        //Ler as informações do Produto
         System.out.println("Informe o nome do produto");
         String nomeProduto = leitor.next() + leitor.nextLine();
 
@@ -47,23 +47,34 @@ public class Terminal {
         f.nome = nomeFornecedor;
         f.cnpj = cnpj;
 
-        //Exibir as informações do objeto do produto
-        System.out.println("Produto");
-        System.out.println("Nome: "+p.nome);
-        System.out.println("Preco: "+p.preco);
-        System.out.println("Codigo: "+p.codigo);
-        System.out.println("Disponibilidade: "+p.disponivel);
+        //Colocar o fornecedor no produto
+        p.fornecedor = f;
 
-        System.out.println("");
+        //Exibir as informações do objeto do produto
+        System.out.println("Nome: " + p.nome);
+        System.out.println("Preco: " + p.preco);
+        System.out.println("Codigo: " + p.codigo);
+        System.out.println("Disponibilidade: " + p.disponivel);
 
         //Exibir as informações do objeto do fornecedor
-        System.out.println("Fornecedor");
-        System.out.println("Nome: "+ f.nome);
-        System.out.println("CNPJ: "+ f.cnpj);
+        System.out.println("Nome fornecedor: " + p.fornecedor.nome);
+        System.out.println("CNPJ fornecedor: " + p.fornecedor.cnpj);
 
+        //Usando Metodos de dentro do produto
+        double desconto = p.calcularDesconto();
+        System.out.println("Desconto: " + desconto);
 
+        System.out.println("Qual a % de aumento?");
+        double porcentagem = leitor.nextDouble();
 
+        p.aumentarPreco(porcentagem);
+        System.out.println("Preço atualizado: " + p.preco);
 
+        System.out.println("Quantos desse produto você quer?");
+        int quantidade = leitor.nextInt();
+
+        double valorFim = p.valorCompra(quantidade);
+        System.out.println("Valor final: "+valorFim);
     }
 
 }
