@@ -21,8 +21,6 @@ public class Produto {
     }
 
     public double valorCompra(int quantidade){
-
-        double valorFinal = preco * quantidade;
-        return valorFinal;
+        return preco * quantidade;
     }
 }
